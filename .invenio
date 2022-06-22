@@ -1,0 +1,40 @@
+[cli]
+flavour = RDM
+logfile = /logs/invenio-cli.log
+
+[cookiecutter]
+project_name = NR Documents
+project_shortname = nr-documents
+project_site = docs.narodni-repozitar.cz
+github_repo = oarepo/nr-documents
+description = Czech National Repository for documents
+author_name = CESNET
+author_email = support@narodni-repozitar.cz
+year = 2022
+python_version = 3.9
+database = postgresql
+elasticsearch = 7
+file_storage = local
+development_tools = yes
+app_package = oarepo-app-custom
+app_package_path = 
+datamodel_package = 
+datamodel_package_path = 
+_template = gh:oarepo/cookiecutter-oarepo-instance
+
+[files]
+app_data = {'vocabularies': {'.gitkeep': '22c2e25700ed996461cfd10914ab8c8b50834c99d3167ea593730803ff4677e5'}, 'README.md': 'd58978488626bdeddc791a15a39e341a4ed06f202b84d0c0d4aa9ef49481c6d9', 'vocabularies.yaml': '58639b3dc6c8697ce5c72d87edd814a7a1737f37dc3dbe6584e90c32d1114577'}
+docker = {'nginx': {'test.crt': '804fdf258edf2fef7b4e4e65748b118f9c876ac12b02ed3faab1c0b86c4870e6', 'Dockerfile': '541326766beaba2e8492255c99e11aa76640d71329ceab5bcab1c8d6a979bd5c', 'test.key': 'd9790def1c2d7964675483266a9dc1c5603310f71688f53b54e8a451b2bb5737', 'nginx.conf': '6c9a6e372fc340dfcd3b49e6a30bd7bd36af41d79d1d093b7b3ba5f4c9d781b4', 'conf.d': {'default.conf': '56083b8ec8c2bc0aaab41e6db46785f2391f18a99744918e48ed14bfe91f0f43'}}, 'pgadmin': {'servers.json': 'fbcfec01564da402831429cd07c399501fd8d249aa663cb5474c7e5149749ce8'}, 'uwsgi': {'uwsgi_rest.ini': 'c36fc5021baf15f375b3b6c825f7753e5d166319c5fe38a85b604391ce5b37b6', 'uwsgi_ui.ini': 'c80168dc8d29086b876caab41b5057fddef46bdc748c5ecf213f684aa73cc90c'}}
+invenio.cfg = 9877d89c04157e9a2d31d616300af3fe37d392405970dbe0fb2881d92787acdc
+docker-services.yml = dca750d656c74d4561ab38e1063d5af6bfad5b441390f8716aea8aa68a1924a2
+dockerfile = f9b6dd1f450643016d5b4bf6261f6400ec75d208df4f8b348ce2b3ac2a29c5e3
+readme.md = 184ccdaaeec12ed53d3f471d2b3718fbf7cc6ddadfe2d28bfc5cceb4b0b4e3e0
+pipfile = f0b06338671ca331b9463f9fce2a8789541688805f2320abdbf3a1c0173d7334
+.dockerignore = 21241bc12cdf4ac5f209d6b191adc8f25eb89af93ce5c4c3f72c86661162d7b5
+.gitignore = af1182c70588e583daeb35809e6cdfe3408425d438c3ceb282b1f4b8360290e2
+static = {'images': {'theme-logo.svg': '5af2c7b67a09798cba3d50cc2e811ca9fd2ff73b40d9d2a52a97237b9ed44008'}}
+docker-compose.full.yml = 9d0c1a848cfb477891ac6bd239c7050e0ab3ebb74905bf1d51586650afbd62ce
+templates = {'.gitkeep': 'd4756cdf68d94c670c924f9d57d44718f666e457727701486435b57a97e52c5f', 'README.md': '07f5914ab2a86453e9750c27b8f1e2c3df4950b1645b4e68dbc1fed6b94f7127'}
+docker-compose.yml = 8b66658940c970dac0bd720e3af4419c6a3cb8b71ea183024f6e17835ba7a9aa
+assets = {'less': {'theme.config': '3fbb38173f398996633749bf5abd973fa98cfbba65ca45e62da38977b7aaeee8', 'README.md': 'd2b8147415b5a0e0cba587417f50c890a14dc2914c8a08f138658f8e79529fdd', 'site': {'globals': {'site.variables': '4fca0c1ffb3aad04f3142f3e61792f753353e19b948d1e7df2981f46fd1ce2a2', 'site.overrides': '4fca0c1ffb3aad04f3142f3e61792f753353e19b948d1e7df2981f46fd1ce2a2'}}}, 'templates': {'.gitkeep': '22c2e25700ed996461cfd10914ab8c8b50834c99d3167ea593730803ff4677e5', 'search': {'.gitkeep': '22c2e25700ed996461cfd10914ab8c8b50834c99d3167ea593730803ff4677e5'}}}
+
