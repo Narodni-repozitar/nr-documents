@@ -13,6 +13,11 @@ Run the following commands in order to start your developing on your new OARepo 
 ```console
 cd my-site
 invenio-cli install
+```
+
+On `site-packages/invenio_cli/commands/services.py` remove the command step from `def demo(self)` method (leave the steps or `return []`).
+
+```console
 invenio-cli services setup --no-demo-data
 invenio-cli run
 ```
