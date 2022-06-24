@@ -15,7 +15,7 @@ cd my-site
 invenio-cli install
 ```
 
-On `site-packages/invenio_cli/commands/services.py` remove the command step from `def demo(self)` method (leave the steps or `return []`).
+On `site-packages/invenio_cli/commands/services.py` remove all `CommandStep` containing `rdm-records` (leave the steps or `return []`).
 
 ```console
 invenio-cli services setup
