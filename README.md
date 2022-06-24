@@ -13,7 +13,7 @@ Run the following commands in order to start your developing on your new OARepo 
 ```console
 cd my-site
 invenio-cli install
-invenio-cli services setup
+invenio-cli services setup --no-demo-data
 invenio-cli run
 ```
 
