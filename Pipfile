@@ -54,6 +54,7 @@ Werkzeug = ">=1.0,!=2.1.0,!=2.1.1"
 
 invenio-search = {extras = ["elasticsearch7"], version = ">=1.4.2,<1.5.0" }
 
+oarepo-ui = ">=4.0.2"
 
 
 [requires]
