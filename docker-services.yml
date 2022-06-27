@@ -6,67 +6,73 @@ services:
       args:
         - ENVIRONMENT=DEV
     image: nr-documents
-    restart: "unless-stopped"
+    restart: 'unless-stopped'
     environment:
-      - "INVENIO_ACCOUNTS_SESSION_REDIS_URL=redis://cache:6379/1"
-      - "INVENIO_BROKER_URL=amqp://guest:guest@mq:5672/"
-      - "INVENIO_CACHE_REDIS_URL=redis://cache:6379/0"
-      - "INVENIO_CACHE_TYPE=redis"
-      - "INVENIO_CELERY_BROKER_URL=amqp://guest:guest@mq:5672/"
-      - "INVENIO_CELERY_RESULT_BACKEND=redis://cache:6379/2"
+      - 'INVENIO_ACCOUNTS_SESSION_REDIS_URL=redis://cache:6379/1'
+      - 'INVENIO_BROKER_URL=amqp://guest:guest@mq:5672/'
+      - 'INVENIO_CACHE_REDIS_URL=redis://cache:6379/0'
+      - 'INVENIO_CACHE_TYPE=redis'
+      - 'INVENIO_CELERY_BROKER_URL=amqp://guest:guest@mq:5672/'
+      - 'INVENIO_CELERY_RESULT_BACKEND=redis://cache:6379/2'
       - "INVENIO_SEARCH_ELASTIC_HOSTS=['es:9200']"
-      - "INVENIO_SECRET_KEY=CHANGE_ME"
-      - "INVENIO_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://nr-documents:nr-documents@db/nr-documents"
-      - "INVENIO_WSGI_PROXIES=2"
-      - "INVENIO_RATELIMIT_STORAGE_URL=redis://cache:6379/3"
+      - 'INVENIO_SECRET_KEY=CHANGE_ME'
+      - 'INVENIO_SQLALCHEMY_DATABASE_URI=postgresql+psycopg2://nr-documents:nr-documents@db/nr-documents'
+      - 'INVENIO_WSGI_PROXIES=2'
+      - 'INVENIO_RATELIMIT_STORAGE_URL=redis://cache:6379/3'
   frontend:
     build: ./docker/nginx/
     image: nr-documents-frontend
-    restart: "unless-stopped"
+    restart: 'unless-stopped'
     ports:
-      - "80"
-      - "443"
+      - '80'
+      - '443'
   cache:
     image: redis
-    restart: "unless-stopped"
+    restart: 'unless-stopped'
     read_only: true
     ports:
-      - "6379:6379"
+      - '127.0.0.1:16379:6379'
   db:
     image: postgres:12.4
-    restart: "unless-stopped"
+    restart: 'unless-stopped'
     environment:
-      - "POSTGRES_USER=nr-documents"
-      - "POSTGRES_PASSWORD=nr-documents"
-      - "POSTGRES_DB=nr-documents"
+      - 'POSTGRES_USER=nr-documents'
+      - 'POSTGRES_PASSWORD=nr-documents'
+      - 'POSTGRES_DB=nr-documents'
     ports:
-      - "5432:5432"
+      - '127.0.0.1:15432:5432'
   pgadmin:
     image: dpage/pgadmin4:5.2
-    restart: "unless-stopped"
+    restart: 'unless-stopped'
     ports:
-      - "5050:80"
-      - "5051:443"
+      - '127.0.0.1:5050:80'
+      - '127.0.0.1:5051:443'
     environment:
-      PGADMIN_DEFAULT_EMAIL: "support@narodni-repozitar.cz"
-      PGADMIN_DEFAULT_PASSWORD: "nr-documents"
+      PGADMIN_DEFAULT_EMAIL: 'support@narodni-repozitar.cz'
+      PGADMIN_DEFAULT_PASSWORD: 'nr-documents'
     volumes:
       - ./docker/pgadmin/servers.json:/pgadmin4/servers.json
   mq:
     image: rabbitmq:3.8-management
-    restart: "unless-stopped"
+    restart: 'unless-stopped'
     ports:
-      - "15672:15672"
-      - "5672:5672"
+      - '127.0.0.1:15672:15672'
+      - '127.0.0.1:25672:5672'
   es:
-    image: docker.elastic.co/elasticsearch/elasticsearch-oss:7.10.2
-    restart: "unless-stopped"
+    image: docker.io/bitnami/elasticsearch:7.16.1-debian-10-r2
+    restart: 'unless-stopped'
     environment:
       - bootstrap.memory_lock=true
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - 'ES_JAVA_OPTS=-Xms512m -Xmx512m'
       - discovery.type=single-node
     healthcheck:
-      test: ["CMD", "curl", "-f", "localhost:9200/_cluster/health?wait_for_status=green"]
+      test:
+        [
+          'CMD',
+          'curl',
+          '-f',
+          'localhost:9200/_cluster/health?wait_for_status=green',
+        ]
       interval: 30s
       timeout: 30s
       retries: 5
@@ -76,12 +82,12 @@ services:
         hard: -1
     mem_limit: 1g
     ports:
-      - "9200:9200"
-      - "9300:9300"
+      - '127.0.0.1:19200:9200'
+      - '127.0.0.1:19300:9300'
   kibana:
     image: docker.elastic.co/kibana/kibana-oss:7.10.2
     environment:
-      - "ELASTICSEARCH_HOSTS=http://es:9200"
-      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - 'ELASTICSEARCH_HOSTS=http://es:9200'
+      - 'ES_JAVA_OPTS=-Xms512m -Xmx512m'
     ports:
-      - "5601:5601"
+      - '127.0.0.1:15601:5601'
