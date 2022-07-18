@@ -1,12 +1,12 @@
 [cli]
-flavour = RDM
+flavour = OARepo
 logfile = /logs/invenio-cli.log
 
 [cookiecutter]
 project_name = NR Documents
-project_shortname = nr-documents
+project_shortname = nr-documents-site
 project_site = docs.narodni-repozitar.cz
-github_repo = oarepo/nr-documents
+github_repo = NarodniRepozitar/nr-documents-site
 description = Czech National Repository for documents
 author_name = CESNET
 author_email = support@narodni-repozitar.cz

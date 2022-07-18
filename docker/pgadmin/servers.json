@@ -1,14 +1,13 @@
 {
-    "Servers": {
-      "1": {
-        "Name": "nr-documents_db",
-        "Group": "Servers",
-        "Host": "nr-documents_db_1",
-        "Port": 5432,
-        "MaintenanceDB": "postgres",
-        "Username": "nr-documents",
-        "SSLMode": "prefer"
-      }
+  "Servers": {
+    "1": {
+      "Name": "nr-documents-site_db",
+      "Group": "Servers",
+      "Host": "nr-documents-site_db_1",
+      "Port": 5432,
+      "MaintenanceDB": "postgres",
+      "Username": "nr-documents-site",
+      "SSLMode": "prefer"
     }
   }
-  
+}

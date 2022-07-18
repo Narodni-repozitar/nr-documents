@@ -63,7 +63,7 @@ services:
       file: docker-services.yml
       service: app
     command: ["uwsgi /opt/invenio/var/instance/uwsgi_ui.ini"]
-    image: nr-documents:latest
+    image: nr-documents-site:latest
     ports:
       - "5000"
     volumes:
@@ -77,7 +77,7 @@ services:
       file: docker-services.yml
       service: app
     command: ["uwsgi /opt/invenio/var/instance/uwsgi_rest.ini"]
-    image: nr-documents:latest
+    image: nr-documents-site:latest
     ports:
       - "5000"
     volumes:
@@ -90,7 +90,7 @@ services:
       file: docker-services.yml
       service: app
     command: ["celery -A invenio_app.celery worker --loglevel=INFO"]
-    image: nr-documents:latest
+    image: nr-documents-site:latest
     volumes:
       - uploaded_data:/opt/invenio/var/instance/data
     depends_on:

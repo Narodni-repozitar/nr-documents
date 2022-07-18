@@ -1,6 +1,6 @@
-# NR Documents
+# NR Documents Site
 
-Welcome to your OARepo instance.
+Czech National Repository for documents.
 
 ## System requirements
 
@@ -11,7 +11,7 @@ Before starting, please check that you meet the [System requirements](https://in
 Run the following commands in order to start your developing on your new OARepo instance:
 
 ```console
-cd my-site
+cd nr-documents-site
 invenio-cli install
 ```
 
