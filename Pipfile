@@ -54,7 +54,7 @@ Werkzeug = ">=1.0,!=2.1.0,!=2.1.1"
 
 invenio-search = {extras = ["elasticsearch7"], version = ">=1.4.2,<1.5.0" }
 
-nr-documents-app = ">=1.0.6"
+nr-documents-app = ">=1.0.7"
 
 [requires]
 python_version = "3.9"

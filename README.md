@@ -22,6 +22,14 @@ invenio-cli services setup
 invenio-cli run
 ```
 
+On a second terminal, run:
+
+```console
+invenio-cli assets watch
+```
+
+This watches for and reloads any changes made to JS, CSS,...assets.
+
 The above commands first builds the application docker image and afterwards
 starts the application and related services (database, Elasticsearch, Redis
 and RabbitMQ). The build and boot process will take some time to complete,
